@@ -1,4 +1,4 @@
-%fadeUp {
+.fadeUp {
   transform: translate3d(0, 30px, 0);
   opacity: 0;
 
@@ -7,7 +7,7 @@
   }
 }
 
-%fadeDown {
+.fadeDown {
   transform: translate3d(0, -30px, 0);
   opacity: 0;
 
@@ -16,7 +16,7 @@
   }
 }
 
-%fadeLeft {
+.fadeLeft {
   transform: translate3d(30px, 0, 0);
   opacity: 0;
 
@@ -25,7 +25,7 @@
   }
 }
 
-%fadeRight {
+.fadeRight {
   transform: translate3d(-30px, 0, 0);
   opacity: 0;
 

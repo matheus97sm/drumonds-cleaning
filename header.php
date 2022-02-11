@@ -32,6 +32,11 @@
 
   <link rel="stylesheet" href="<?=get_template_directory_URI()?>/style.css" />
 
+  <script>
+    var base_URL = '<?=site_url()?>';
+    var template_URL = '<?=get_template_directory_URI()?>';
+  </script>
+
   <?php wp_head(); ?>
 </head>
 

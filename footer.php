@@ -14,10 +14,13 @@
   <? // echo do_shortcode(''); ?>
 </footer>
 
+<div style="display: none;">
+  <?php include 'svg.php'; ?>
+</div>
+
 <script src="<?=get_template_directory_URI()?>/app/app.js"></script>
 
 <?php wp_footer(); ?>
 
 </body>
-
 </html>
