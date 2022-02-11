@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matheus97sm/drumonds-cleaning.git"
+    "url": "git+https://github.com/matheus97sm/wp-padrao.git"
   },
   "author": "Matheus Fonseca",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matheus97sm/drumonds-cleaning/issues"
+    "url": "https://github.com/matheus97sm/wp-padrao/issues"
   },
-  "homepage": "https://github.com/matheus97sm/drumonds-cleaning#readme",
+  "homepage": "https://github.com/matheus97sm/wp-padrao#readme",
   "dependencies": {
     "@babel/core": "^7.5.4",
     "@babel/polyfill": "^7.8.7",
