@@ -1,5 +1,5 @@
 {
-  "name": "name_here",
+  "name": "drumonds_cleaning",
   "version": "1.0.0",
   "description": "Para começar a realizar qualquer tipo de ação no tema, leia as instruções README.md",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matheus97sm/wp-padrao.git"
+    "url": "git+https://github.com/matheus97sm/drumonds-cleaning.git"
   },
   "author": "Matheus Fonseca",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matheus97sm/wp-padrao/issues"
+    "url": "https://github.com/matheus97sm/drumonds-cleaning/issues"
   },
-  "homepage": "https://github.com/matheus97sm/wp-padrao#readme",
+  "homepage": "https://github.com/matheus97sm/drumonds-cleaning#readme",
   "dependencies": {
     "@babel/core": "^7.5.4",
     "@babel/polyfill": "^7.8.7",
