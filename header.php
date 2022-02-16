@@ -42,20 +42,75 @@
 
 <body <?php body_class(); ?>>
 
-  <div id="fb-root"></div>
-  <script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.10&appId=243085426048812";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
-
   <header class="header">
-    <div>
-      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>
+    <nav class="menu">
+      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu' => 'MenuTopo', 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>
+    </nav>
+
+    <div class="header-right">
+      <a href="<?=site_url()?>">
+        <img 
+          src="<?=get_template_directory_URI()?>/img/src/brand_header.svg" 
+          alt="Drumonds Cleaning" 
+        />
+      </a>
+
+      <div class="menu-button">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div class="header-social">
+        <?php if( have_rows('info', 29) ):
+        while( have_rows('info', 29) ): the_row(); 
+
+        $facebook = get_sub_field('facebook');
+        $instagram = get_sub_field('instagram');
+        ?>
+        <?php if ($instagram) { ?> 
+          <a href="<?=$instagram?>" target="_blank">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <use xlink:href="#instagram"></use>
+            </svg> 
+          </a>  
+        <?php } ?>
+
+        <?php if ($facebook) { ?> 
+          <a href="<?=$facebook?>" target="_blank">
+            <svg width="32" height="32" viewBox="0 0 32 32">
+              <use xlink:href="#facebook"></use>
+            </svg> 
+          </a>
+        <?php } ?>
+        <?php endwhile; ?>
+        <?php endif; ?>
+      </div>
     </div>
   </header>
+
+  <?php if (!is_front_page() && get_the_ID() != 20) { ?>
+    <section class="inside-banner">
+      <div class="container">
+        <div class="inside-banner-text">
+          <h1><?=the_title()?></h1>
+          <div><?=the_field('resume')?></div>
+        </div>
+
+        <div class="inside-banner-img">
+          <img 
+            src="<?=get_template_directory_URI()?>/img/src/brand_white.svg" 
+            alt="Drumonds Cleaning"
+            class="inside-banner-img-brand"
+          />
+
+          <img 
+            src="<?=get_template_directory_URI()?>/img/src/pattern_heavy.svg" 
+            alt="Drumonds Cleaning"
+            class="inside-banner-img-pattern"
+          />
+        </div>
+      </div>
+    </section>
+  <?php } ?>
