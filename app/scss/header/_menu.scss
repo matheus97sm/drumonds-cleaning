@@ -1,0 +1,51 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #fff;
+  transition: 1.6s height;
+  z-index: 998;
+
+  a {
+    display: block;
+    padding: 12px;
+
+    color: $darkPurple;
+    font-size: 26px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  li {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-16px, 0, 0);
+    transition-duration: 1s;
+    transition-property: transform, opacity, visibility;
+  }
+
+  &.active {
+    height: 100vh;
+
+    li {
+      opacity: 1;
+      visibility: visible;
+      transform: translate3d(0, 0, 0);
+    }    
+
+    @for $i from 1 through 10 {
+      li:nth-of-type(#{$i}) {
+        transition-delay: .5s + ($i * 0.3s);
+      }
+    }
+  }
+}
+
+@import './menuButton';

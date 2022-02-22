@@ -30,6 +30,10 @@
   <link rel="profile" href="http://gmpg.org/xfn/11">
   <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="<?=get_template_directory_URI()?>/style.css" />
 
   <script>
@@ -43,19 +47,15 @@
 <body <?php body_class(); ?>>
 
   <header class="header">
-    <nav class="menu">
-      <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu' => 'MenuTopo', 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>
-    </nav>
-
     <div class="header-right">
-      <a href="<?=site_url()?>">
+      <a class="header-img" href="<?=site_url()?>">
         <img 
           src="<?=get_template_directory_URI()?>/img/src/brand_header.svg" 
           alt="Drumonds Cleaning" 
         />
       </a>
 
-      <div class="menu-button">
+      <div class="menu-button" data-menu="button">
         <span></span>
         <span></span>
         <span></span>
@@ -89,6 +89,10 @@
       </div>
     </div>
   </header>
+  
+  <nav class="menu" data-menu="menu">
+    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu' => 'MenuTopo', 'menu_class' => 'nav-menu', 'menu_id' => 'primary-menu' ) ); ?>
+  </nav>
 
   <?php if (!is_front_page() && get_the_ID() != 20) { ?>
     <section class="inside-banner">

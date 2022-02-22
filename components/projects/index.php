@@ -16,13 +16,17 @@ $button_link = get_sub_field('button_link');
           alt="Drumonds Cleaning" 
         />
 
-        <h4><?=$subtitle?></h4>
+        <h3><?=$subtitle?></h3>
+        <?php if (is_front_page()) { ?> 
+        <h2><?=$title?></h2>
+        <?php } else { ?> 
         <h1><?=$title?></h1>
+        <?php } ?>
 
-        <div><?=$text?></div>
+        <div class="normal-text"><?=$text?></div>
 
         <?php if (is_front_page()) { ?> 
-          <a href="<?=$button_link?>"><?=$button_name?></a>
+          <a href="<?=$button_link?>" class="cta cta-white"><?=$button_name?></a>
         <?php } ?>
       </div>
 
@@ -36,7 +40,7 @@ $button_link = get_sub_field('button_link');
         <img 
           src="<?=get_template_directory_URI()?>/img/src/pattern_white.svg" 
           alt="Pattern Drumonds Cleaning"
-          class="project-img-pattern"
+          class="projects-img-pattern"
         />
       </div>
     </div>
@@ -64,9 +68,9 @@ $button_link = get_sub_field('button_link');
 
     <?php wp_reset_query();
     if (!is_front_page()) { ?>
-      <div class="projects-carousel">
-        <div data-carousel="wrapper"></div>
-        <div data-carousel="thumbnails"></div>
+      <div class="projects-gallery">
+        <div data-gallery="wrapper"></div>
+        <div data-gallery="thumbnails"></div>
       </div>
     <?php } ?>
   </div>

@@ -1,0 +1,50 @@
+.projects-cards {
+  display: grid;
+  gap: 32px;
+}
+
+.project-card {
+  display: grid;
+  gap: 16px;
+
+  .project-card-img {
+    position: relative;
+
+    width: 100%;
+    padding-top: 60%;
+
+    border-radius: 8px;
+    box-shadow: $shadow;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .project-card-text {
+    position: relative;
+    
+    z-index: 1;
+
+    p {
+      color: #fff;
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      right: 0;
+
+      transform: translate3d(0, -50%, 0);
+      opacity: 0.2;
+      z-index: -1;
+    }
+  }
+}

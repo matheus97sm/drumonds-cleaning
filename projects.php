@@ -9,7 +9,7 @@
 get_header(); ?>
 
 <?php wp_reset_query();
-include 'projects-content.php' 
+include 'components/projects/index.php';
 ?>
 
 <?php get_footer();

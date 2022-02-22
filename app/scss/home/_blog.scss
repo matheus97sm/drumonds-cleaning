@@ -1,0 +1,39 @@
+.home-blog {
+  width: 100%;
+  padding: 128px 0;
+  overflow: hidden;
+
+  .container {
+    display: grid;
+    gap: 64px;
+  }
+}
+
+.home-blog-text .home-blog-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.home-blog-wrapper {
+  position: relative;
+
+  z-index: 1;
+
+  .home-blog-pattern {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    transform: translate3d(0, -50%, 0) rotate(90deg);
+    z-index: -1;
+  }
+}
+
+.home-blog-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  gap: 32px;
+}

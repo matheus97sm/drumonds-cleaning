@@ -29,13 +29,16 @@
 		<img src="<?=catch_that_image(2)?>" alt="<?=the_title()?>" />
 	</div>
 
-	<div class="home-blog-text">
+	<div class="blog-card-text">
 		<span><?=the_date()?></span>
 
-		<h4><?=the_title()?></h4>
+		<h3><?=the_title()?></h3>
 		<p><?=the_field('resume')?></p>
 
-		<strong>read more</strong>
+		<div>
+			<strong>read more</strong> 
+			<img src="<?=get_template_directory_URI()?>/img/src/arrow.svg" />
+		</div>
 	</div>
 </a>
 

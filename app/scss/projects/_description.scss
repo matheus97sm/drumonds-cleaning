@@ -1,0 +1,52 @@
+.projects-description {
+  display: grid;
+  gap: 64px;
+}
+
+.projects-text {
+  img {
+    width: 200px;
+    margin-bottom: 32px;
+  }
+
+  h3 {
+    color: $green;
+    font-size: 24px;
+  }
+
+  h1, 
+  h2 {
+    max-width: 100%;
+
+    color: $white;
+    font-size: 64px;
+    line-height: 66px;
+  }
+
+  p {
+    opacity: 0.7;
+
+    color: $white;
+  }
+}
+
+.projects-img {
+  position: relative;
+  z-index: 1;
+
+  .projects-img-featured {
+    width: 100%;
+
+    opacity: 0.56;
+  }
+
+  .projects-img-pattern {
+    position: absolute;
+    top: -40px;
+    right: 0;
+
+    width: 140px;
+
+    z-index: -1;
+  }
+}

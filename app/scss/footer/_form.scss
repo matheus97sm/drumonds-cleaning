@@ -1,0 +1,35 @@
+.footer-form {
+  width: 100%;
+
+  form {
+    display: grid;
+    gap: 16px;
+
+    label {
+      color: $darkPurple;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    input:not([type="submit"]),
+    textarea {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      height: 40px;
+      padding: 8px 16px;
+
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid $darkPurple;
+
+      color: $darkPurple;
+      font-size: 1rem;
+      
+      &::placeholder {
+        opacity: 0.6;
+        color: $darkPurple;
+      }
+    }
+  }
+}

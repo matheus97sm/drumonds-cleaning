@@ -1,0 +1,51 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+
+  background-color: #fff;
+  z-index: 999;
+}
+
+.header-right {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.header-social {
+  display: flex;
+  align-items: center;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  a {
+    padding: 8px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+
+      fill: $purple;
+      transition: .3s fill;
+    }
+
+    &:hover svg {
+      fill: $darkPurple;
+    }
+  }
+}
+
+.header-img {
+  align-self: center;
+  justify-self: center;
+
+  img {
+    width: 48px;
+  }
+}
+
+@import './menu';

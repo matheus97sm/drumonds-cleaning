@@ -4,7 +4,9 @@ $purple: #9890e3;
 $darkPurple: #685ec8;
 $black: #1e275e;
 $grey: #9da0b2;
-$lightPurpleGradient: linear-gradient(#F8F9FE, #EEECFF);
+$lightPurpleGradient: linear-gradient(to top, #F8F9FE, #EEECFF);
+$darkPurpleGradient: linear-gradient(135deg, #667EEA, #764BA2);
+$shadow: 0 13px 20px rgba(67, 61, 114, .2);
 
 * {
   padding: 0;
@@ -12,6 +14,12 @@ $lightPurpleGradient: linear-gradient(#F8F9FE, #EEECFF);
   box-sizing: border-box;
   outline: none;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+body {
+  font-size: 16px;
+  background-color: #F8F9FE;
 }
 
 ul,
@@ -24,7 +32,100 @@ a {
   text-decoration: none;
 }
 
-@import './scss/header/header';
-@import './scss/home';
-@import './scss/footer/footer';
-@import './animation';
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: $grey;
+}
+
+.subtitle {
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  img {
+    width: 16px;
+  }
+
+  span {
+    opacity: 0.6;
+
+    color: $purple;
+    font-size: 14px;
+  }
+}
+
+h2 {
+  max-width: 120px;
+  
+  color: $black;
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 40px;
+}
+
+.normal-text {
+  margin-bottom: 32px;
+
+  p {
+    margin: 1rem 0;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.cta, 
+.cta-alt {
+  min-width: 160px;
+  display: inline-block;
+  padding: 8px 32px;
+
+  background-color: $darkPurple;
+  border: 2px solid $darkPurple;
+  border-radius: 8px;
+  transition: .3s background-color, .3s color;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+
+  &:hover {
+    background-color: transparent;
+    color: $darkPurple;
+
+    &.cta-white {  
+      background-color: transparent;
+      color: $white;
+    }
+  }
+
+  &.cta-white {
+    background-color: $white;
+    border: 2px solid $white;
+
+    color: $purple;
+  }
+}
+
+.cta-alt {
+  background-color: transparent;
+  color: $darkPurple;
+
+  &:hover {
+    background-color: $darkPurple;
+    color: #fff;
+  }
+}
+
+@import 'scss/header/header';
+@import 'scss/home';
+@import 'scss/projects';
+@import 'scss/blog';
+@import 'scss/footer/footer';
+@import 'animation';

@@ -13,13 +13,13 @@
 <footer class="footer">
   <div class="container">
     <div class="title">
-      <h5>
+      <h4 class="subtitle">
         <img 
           src="<?=get_template_directory_URI()?>/img/src/brand_green.svg" 
           alt="Drumonds Cleaning" 
         />
         <span>Everything you need to contact us</span>
-      </h5>
+      </h4>
       
       <h2>Contact</br> Us</h2>
     </div>

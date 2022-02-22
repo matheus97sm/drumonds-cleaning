@@ -1,0 +1,13 @@
+.projects {
+  padding: 128px 0;
+
+  background-image: linear-gradient(135deg, #667EEA, #764BA2);
+
+  .container {
+    display: grid;
+    gap: 64px;
+  }
+}
+
+@import './description';
+@import './cards';

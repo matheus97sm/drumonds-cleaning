@@ -1,31 +1,87 @@
-export async function carousel() {
-  const carouselWrapper = document.querySelector('div[data-carousel="wrapper"]');
-  const carouselThumbnail = document.querySelector('div[data-carousel="thumbnails"]');
+export function carousel() {
+  const carouselBase = document.querySelector('.home-blog-wrapper');
+  const carouselWrapper = document.querySelector('.home-blog-carousel');
+  const carouselItems = document.querySelectorAll('.blog-card');
+  const userEvents = {
+    down: navigator.maxTouchPoints > 0 ? 'touchstart' : 'pointerdown',
+    up: navigator.maxTouchPoints > 0 ? 'touchend' : 'pointerup',
+    move: navigator.maxTouchPoints > 0 ? 'touchmove' : 'pointermove',
+  }
+  const userInteractions = {
+    clicked: false,
+    actualPosition: 0,
+    enterX: 0,
+    leaveX: 0,
+    clickingTime: 0
+  }
 
-  if (!carouselWrapper || !carouselThumbnail) return;
+  if (!carouselWrapper) return;
 
-  const queryParams = 'parent=20&per_page=40&_fields=id,caption,alt_text,media_details';
-  const restAPI = `/wp-json/wp/v2/media?${queryParams}`;
+  readjustCarouselSize(carouselBase, carouselWrapper, carouselItems);
 
-  const carouselImages = await fetch(restAPI, { method: 'GET' })
-    .then(r => r.json())
-    .then(r => r);
+  window.addEventListener('resize', () => {
+    readjustCarouselSize(carouselBase, carouselWrapper, carouselItems);
+  });
 
-  carouselImages.forEach(image => {
-    const newImageWrapper = document.createElement('div');
-    newImageWrapper.classList.add('carousel-img');
-
-    const newImage = document.createElement('img');
-    Object.assign(newImage, {
-      src: image.media_details.sizes.full.source_url,
-      alt: image.alt_text
+  // Items Events
+  carouselItems.forEach(item => {
+    item.addEventListener('click', e => {
+      e.preventDefault();
     });
 
-    if (image.caption?.rendered) {
-      const newImageCaption = document.createElement('div');
-    }
+    item.addEventListener(userEvents.down, e => {
+      e.preventDefault();
 
-    newImageWrapper.appendChild(newImage);
-    carouselWrapper.appendChild(newImageWrapper);
+      item.style.setProperty('cursor', 'grab');
+      userInteractions.clickingTime = Date.now();
+    });
+
+    item.addEventListener(userEvents.up, () => {
+      item.style.setProperty('cursor', 'pointer');
+
+      if (Date.now() - userInteractions.clickingTime < 100)
+        window.location.href = item.getAttribute('href');
+    });
   });
+
+  // CarouselEvents
+  carouselWrapper.addEventListener(userEvents.down, e => {
+    const clientX = e.pointerType === 'mouse' ? e.clientX : e.changedTouches[0].clientX;
+
+    carouselWrapper.style.setProperty('cursor', 'grab');
+
+    userInteractions.enterX = clientX - userInteractions.actualPosition;
+    userInteractions.clicked = true;
+  });
+
+  carouselWrapper.addEventListener(userEvents.move, e => {
+    if (userInteractions.clicked) {
+    const clientX = e.pointerType === 'mouse' ? e.clientX : e.changedTouches[0].clientX;
+    const xMovement = -(userInteractions.enterX - clientX);
+
+      userInteractions.actualPosition = xMovement;
+      carouselWrapper.style.setProperty('transform', `translate3d(${xMovement}px, 0, 0)`)
+    }
+  });
+
+  carouselWrapper.addEventListener(userEvents.up, e => {
+    const clientX = e.pointerType === 'mouse' ? e.clientX : e.changedTouches[0].clientX;
+
+    carouselWrapper.style.setProperty('cursor', 'default');
+
+    userInteractions.enterX = 0;
+    userInteractions.leaveX = clientX;
+    userInteractions.clicked = false;
+  });
+}
+
+function readjustCarouselSize(carouselBase, carouselWrapper, carouselItems) {
+  const itemWidthSize = window.innerWidth * 0.9 < 320 ? window.innerWidth * 0.9 : 320; 
+  const newCarouselWrapperWidth = (itemWidthSize * carouselItems.length) + (32 * (carouselItems.length - 1));
+
+  carouselWrapper.style.setProperty('width', `${newCarouselWrapperWidth}px`);
+
+  const itemHeightSize = carouselItems[0].getBoundingClientRect().height;
+
+  carouselBase.style.setProperty('height', `${itemHeightSize}px`);
 }

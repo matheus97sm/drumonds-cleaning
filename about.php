@@ -19,13 +19,13 @@ $text = get_sub_field('text');
 <section class="about">
   <div class="container">
     <div class="about-text">
-      <h5>
+      <h4 class="subtitle">
         <img 
           src="<?=get_template_directory_URI()?>/img/src/brand_green.svg" 
           alt="Drumonds Cleaning" 
         />
         <span><?=$subtitle?></span>
-      </h5>
+      </h4>
       <h2><?=$title?></h2>
 
       <div class="normal-text"><?=$text?></div>
