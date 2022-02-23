@@ -69,8 +69,26 @@ $button_link = get_sub_field('button_link');
     <?php wp_reset_query();
     if (!is_front_page()) { ?>
       <div class="projects-gallery">
-        <div data-gallery="wrapper"></div>
-        <div data-gallery="thumbnails"></div>
+        <h2>Some photos of <strong>our projects</strong></h2>
+
+        <img 
+          src="<?=get_template_directory_URI()?>/img/src/brand_white.svg" 
+          alt="Drumonds Cleaning"
+          class="projects-gallery-brand"
+        />
+
+        <div class="projects-gallery-wrapper">
+          <div data-gallery="wrapper"></div>
+
+          <div class="thumbnail-wrapper">
+            <div data-gallery="thumbnails"></div>
+          </div>
+
+          <div class="projects-gallery-buttons">
+            <button class="left"><img src="<?=get_template_directory_URI()?>/img/src/arrow.svg" alt="left" /></button>
+            <button class="right"><img src="<?=get_template_directory_URI()?>/img/src/arrow.svg" alt="left" /></button>
+          </div>
+        </div>
       </div>
     <?php } ?>
   </div>

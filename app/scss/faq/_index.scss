@@ -1,0 +1,72 @@
+.faq {
+  width: 100%;
+  padding: 64px 0;
+
+  .container {
+    display: grid;
+    gap: 32px;
+  }
+}
+
+.faq-card {
+  width: 100%;
+  padding: 32px;
+  display: grid;
+  gap: 16px;
+
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: $shadow;
+
+  &.active {
+    header span::after {
+      height: 0;
+    }
+
+    .faq-card-text {
+      display: block;
+    }
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    strong {
+      color: $darkPurple;
+      font-size: 22px;
+    }
+
+    span {
+      position: relative;
+      width: 16px;
+      height: 16px;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 100%;
+        height: 2px;
+
+        background-color: $darkPurple;
+        transform: translate3d(-50%, -50%, 0);
+        animation: .3s height;
+      }
+
+      &::after {
+        width: 2px;
+        height: 100%;
+      }
+    }
+  }
+  
+  .faq-card-text {
+    display: none;   
+  }
+}

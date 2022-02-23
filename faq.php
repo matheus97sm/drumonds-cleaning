@@ -14,11 +14,11 @@ get_header(); ?>
   <?php if ( have_posts() ) : ?>
   <?php while ( have_posts() ) : the_post(); ?>
     <li class="faq-card">
-      <div class="faq-card-title">
+      <header class="faq-card-title">
         <strong><?=the_title()?></strong>
 
         <span></span>
-      </div>
+      </header>
 
       <div class="faq-card-text"><?=the_content()?></div>
     </li>

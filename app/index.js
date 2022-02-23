@@ -5,9 +5,11 @@ import modal from './js/modal';
 import { gallery } from './js/gallery';
 import { carousel } from './js/carousel';
 import { reviews } from './js/reviews';
+import { faq } from './js/faq';
 import './js/modernizr';
 
 openMenu();
 gallery();
 reviews();
 carousel();
+faq();
