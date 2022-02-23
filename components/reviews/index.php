@@ -1,5 +1,5 @@
-<?php if( have_rows('reviews') ):
-while( have_rows('reviews') ): the_row(); 
+<?php if( have_rows('reviews', 10) ):
+while( have_rows('reviews', 10) ): the_row(); 
 
 $subtitle = get_sub_field('subtitle');
 $title = get_sub_field('title');

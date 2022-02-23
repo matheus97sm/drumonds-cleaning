@@ -1,0 +1,48 @@
+.about-projects {
+  position: relative;
+
+  width: 100%;
+  padding: 128px 0;
+
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+
+  .about-projects-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 30%;
+
+    transform: translate3d(0, -30%, 0);
+  }
+
+  .container {
+    position: relative;
+
+    display: grid;
+    justify-items: center;
+    gap: 32px;
+
+    z-index: 1;
+
+    h2 {
+      max-width: 100%;
+      text-align: center;
+
+      color: #fff;
+    }
+
+    .about-projects-brand {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      width: 50%;
+
+      opacity: 0.8;
+      z-index: -1;
+    }
+  }
+}

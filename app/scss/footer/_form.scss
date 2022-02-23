@@ -31,5 +31,26 @@
         color: $darkPurple;
       }
     }
+
+    input[type="submit"] {
+      min-width: 160px;
+      display: inline-block;
+      padding: 8px 32px;
+
+      background-color: $darkPurple;
+      border: 2px solid $darkPurple;
+      border-radius: 8px;
+      transition: .3s background-color, .3s color;
+
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+
+      &:hover {
+        background-color: transparent;
+        color: $darkPurple;
+      }
+    }
   }
 }

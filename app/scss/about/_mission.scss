@@ -1,0 +1,18 @@
+.mission {
+  width: 100%;
+  padding: 64px 0 128px;
+
+  .container {
+    display: grid;
+    gap: 32px;
+  }
+}
+
+.mission-card {
+  h3 {
+    margin-bottom: 16px;
+
+    color: $black;
+    font-size: 32px;
+  }
+}

@@ -85,6 +85,10 @@
         <?php endif; ?>
       </div>
     </div>
+
+    <div class="footer-copy">
+      <p>Copyright © www.drumondscleaning.com 2022. All rights reserved.</p>
+    </div>
   </div>
 </footer>
 
